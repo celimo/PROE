@@ -96,9 +96,10 @@ void loop() {
       dis = *(int16_t*)&buf[7];
       angulo = *(int16_t*)&buf[9];
     }
-    serialPrint(from);serialPrint("; ");serialPrint(posX);serialPrint("; ");serialPrint(posY);
-    serialPrint("; ");serialPrint(rot);serialPrint("; ");serialPrint(tipSens);
-    serialPrint("; ");serialPrint(dis);serialPrint("; ");serialPrintln(angulo);
+
+    serialPrint(from);serialPrint(";");serialPrint(posX);
+    serialPrint("; ");serialPrint(posY);serialPrint("; ");serialPrint(rot);
+    serialPrint("; ");serialPrint(tipSens);serialPrint("; ");serialPrint(dis);serialPrint("; ");serialPrintln(angulo);
   }
   
   actividad();

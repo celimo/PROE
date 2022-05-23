@@ -336,9 +336,12 @@ void loop(){
   if (rf69_manager.available()){
     if (rf69_manager.recvfrom(buf, &len, &from)){
       buf[len] = 0;
-      serialPrint(from);serialPrint("; ");serialPrint(*(int16_t*)&buf[0]);serialPrint("; ");serialPrint(*(int16_t*)&buf[2]);
-      serialPrint("; ");serialPrint(*(int16_t*)&buf[4]);serialPrint("; ");serialPrint((int8_t)buf[6]);
-      serialPrint("; ");serialPrint(*(int16_t*)&buf[7]);serialPrint("; ");serialPrintln(*(int16_t*)&buf[9]);
+      serialPrint("Recibido");;serialPrint("; ");
+      serialPrint(from);serialPrint("; ");serialPrint(*(int16_t*)&buf[0]);
+      serialPrint("; ");serialPrint(*(int16_t*)&buf[2]);serialPrint("; ");serialPrint(*(int16_t*)&buf[4]);
+      serialPrint("; ");serialPrint((int8_t)buf[6]);
+      serialPrint("; ");serialPrint(*(int16_t*)&buf[7]);
+      serialPrint("; ");serialPrintln(*(int16_t*)&buf[9]);
     }
   }
 
@@ -518,6 +521,7 @@ void CrearMensaje(int poseX, int poseY, int rotacion, int tipoSensorX, int dista
     uint16_t rObs = (uint16_t)distanciaX;         //Distancia medida por el sharp si aplica
     uint16_t alphaObs = (uint16_t)(anguloX);      //Angulo respecto al "norte" (orientación inicial del robot medida por el magnetometro)
 
+    serialPrint("Enviado");serialPrint("; ");
     serialPrint(rf69_manager.thisAddress());serialPrint("; ");serialPrint(poseX);serialPrint("; ");serialPrint(poseY);
     serialPrint("; ");serialPrint(rotacion);serialPrint("; ");serialPrint(tipoSensorX);
     serialPrint("; ");serialPrint(distanciaX);serialPrint("; ");serialPrintln(anguloX);
