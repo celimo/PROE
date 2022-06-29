@@ -18,7 +18,7 @@
 
 /************ Radio Setup ***************/
 #define RF69_FREQ 915.0   // Frecuencias deben ser iguales con respecto a los demás nodos
-#define MY_ADDRESS     0  // Dirección del receptor (base). No sé si es necesaria.
+#define MY_ADDRESS     0  // Dirección del receptor (base).
 // Definiciones de pines.
 #define RFM69_CS      8
 #define RFM69_INT     3
@@ -100,6 +100,8 @@ void loop() {
     serialPrint(from);serialPrint(";");serialPrint(posX);
     serialPrint("; ");serialPrint(posY);serialPrint("; ");serialPrint(rot);
     serialPrint("; ");serialPrint(tipSens);serialPrint("; ");serialPrint(dis);serialPrint("; ");serialPrintln(angulo);
+
+    serialPrint("[RSSI ");serialPrint(rf69.lastRssi());serialPrintln("]");
   }
   
   actividad();

@@ -11,7 +11,7 @@
 /************ Serial Setup ***************/
 #define debug 1
 
-#if debug == 1
+#if debug == 0
 #define serialPrint(x) Serial.print(x)
 #define serialPrintln(x) Serial.println(x)
 #else
@@ -332,6 +332,7 @@ void loop(){
   //Revisión de los encoders de los motores (tipo polling para no afectar la comunicación con Ints)
   //revisaEncoders(); 
   RecorrerObstaculos();
+
 
   if (rf69_manager.available()){
     if (rf69_manager.recvfrom(buf, &len, &from)){
